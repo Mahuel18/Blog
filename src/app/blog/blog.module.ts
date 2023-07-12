@@ -5,6 +5,7 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
 import { CreateBlogComponent } from './create-blog/create-blog.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import { BlogCategoriesComponent } from './blog-categories/blog-categories.component';
+import { BlogRoutingModule } from './blog-routing.module';
 
 
 
@@ -17,7 +18,8 @@ import { BlogCategoriesComponent } from './blog-categories/blog-categories.compo
     BlogCategoriesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BlogRoutingModule,
   ]
 })
 export class BlogModule { }
