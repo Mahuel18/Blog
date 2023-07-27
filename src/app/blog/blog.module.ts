@@ -7,6 +7,7 @@ import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import { BlogCategoriesComponent } from './blog-categories/blog-categories.component';
 import { BlogRoutingModule } from './blog-routing.module';
 import { LandingComponent } from './landing/landing.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -22,6 +23,7 @@ import { LandingComponent } from './landing/landing.component';
   imports: [
     CommonModule,
     BlogRoutingModule,
+    RouterModule,
   ]
 })
 export class BlogModule { }
