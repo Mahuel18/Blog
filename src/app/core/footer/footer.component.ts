@@ -11,6 +11,6 @@ export class FooterComponent {
   constructor(private router: Router){}
 
   goLanding(){
-    this.router.navigate(['/blog/list'])
+    this.router.navigate(['/landing'])
   }
 }

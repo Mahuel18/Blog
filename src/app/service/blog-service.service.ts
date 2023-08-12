@@ -16,6 +16,14 @@ export class BlogServiceService {
   public getPosts(): Observable<any> {
     return this.http.get<Posts>(`${this.baseUrl}posts/`);
   }
+  //Obtener publicaciones por id
+  public getPostByID(id: number): Observable<any>{
+    return this.http.get<Posts>(`${this.baseUrl}posts/${id}/`);
+  }
+
+  public getPostsByCategory(categoryName: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}categories/${categoryName}/`);
+  }
 
   // Crear una nueva publicación
   public createPost(post: any): Observable<any> {

@@ -1,1 +1,20 @@
-<p>blog-categories works!</p>
+<div class="container-fluid">
+    <div class="row post-container">
+        <div class="col-md-4" *ngFor="let post of posts">
+            <div class="post mt-5 mb-3">
+                <h3 class="post-header" (click)="viewCategory(post.category.name)">{{ post.category.name }}</h3>
+                <img [src]="BaseUrl + post.image" alt="{{ post.title }}" class="post-img-top">
+                <br>
+                <div class="post-body">
+                    <h5 class="post-title">{{ post.title }}</h5>
+                    <br>
+                    <p class="post-text">{{ post.introduction }}</p>
+                    <div class="post-footer text-muted">
+                        <a (click)="viewPosts(post.id)" class="post-link">Ver Articulo Completo</a>
+                        {{ post.created_at | date: 'dd-MM-yyyy' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

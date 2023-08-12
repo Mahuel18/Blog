@@ -1,1 +1,21 @@
-<p>blog-post works!</p>
+<div class="container post" *ngIf="post">
+    <h2 class="post-title">{{ post.title }}</h2>
+    <br>
+    <div class="post-content">
+        <img [src] = "BaseUrl + post.image" class="mainPicture" />
+    <br>
+    <br>
+    <p>{{ post.paragraph1 }}</p>
+    <p>{{ post.paragraph2 }}</p>
+    <p>{{ post.paragraph3 }}</p>
+    <p>{{ post.paragraph4 }}</p>
+    <p>{{ post.paragraph5 }}</p>
+    <br>
+    <br>
+    <br>
+    <h4>Autor:</h4>
+    <span>{{ post.author.username }}</span>
+
+
+    </div>
+</div>

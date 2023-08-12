@@ -10,11 +10,14 @@ import { LandingComponent } from './landing/landing.component'
 
 const routes: Routes = [
     {
-        path: "",
+        path: "", pathMatch: "full", redirectTo: 'index',
+    },
+    {
+        path: "index",
         component: LandingComponent,
     },
     {
-        path: "categories",
+        path: "categories/:categoryName",
         component: BlogCategoriesComponent,
     },
     {
@@ -22,7 +25,7 @@ const routes: Routes = [
         component: BlogListComponent,
     },
     {
-        path: "post",
+        path: "post/:id",
         component: BlogPostComponent,
     },
     {
@@ -32,6 +35,9 @@ const routes: Routes = [
     {
         path: "create",
         component: CreateBlogComponent,
+    },
+    {
+        path: '**', pathMatch: 'full', redirectTo: 'index',
     },
   ];
   
