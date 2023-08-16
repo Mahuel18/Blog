@@ -1,1 +1,7 @@
-<p>comment-list works!</p>
+<h2>Comentarios</h2>
+  <div class="comment" *ngFor="let comment of comments">
+    <div class="comment-author"><p><strong>Usuario: </strong>{{ comment.author.username }}</p></div>
+    <div class="comment-date"><p><strong>Fecha:  </strong>{{ comment.created_at | date: 'medium' }}</p></div>
+    <div class="comment-content">{{ comment.content }}</div>
+  </div>
+  

@@ -1,10 +1,17 @@
 <nav class="navbar">
   <a href="#" class="navbar-logo">Emanuel Lopez</a>
   <ul class="navbar-links" id="navbar-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Post</a></li>
+    <li><a routerLink="/landing">Home</a></li>
+    <li><a routerLink="/list">Post</a></li>
     <li><a href="#">Portfolio</a></li>
     <li><a href="#">Contact</a></li>
+    <li *ngIf="isLoggedIn"><a>Bienvenido, {{ loggedInUser }}</a></li>
+        <li *ngIf="isLoggedIn; else loginLink">
+          <a style="cursor: pointer;" (click)="logout()">Cerrar sesión</a>
+        </li>
+        <ng-template #loginLink>
+          <li><a routerLink="/login"><i class="fa fa-user"></i>Iniciar sesión</a></li>
+        </ng-template>
   </ul>
   <div class="navbar-toggle" id="navbar-toggle">
     <span></span>
@@ -12,4 +19,3 @@
     <span></span>
   </div>
 </nav>
-

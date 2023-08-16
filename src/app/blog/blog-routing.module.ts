@@ -5,12 +5,17 @@ import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import { CreateBlogComponent } from './create-blog/create-blog.component';
-import { LandingComponent } from './landing/landing.component'
+import { LandingComponent } from './landing/landing.component';
+import { LoginComponent } from "../authentication/login/login.component";
 
 
 const routes: Routes = [
     {
         path: "", pathMatch: "full", redirectTo: 'index',
+    },
+    {
+        path: "login",
+        component: LoginComponent,
     },
     {
         path: "index",

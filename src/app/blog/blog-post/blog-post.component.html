@@ -3,18 +3,20 @@
     <br>
     <div class="post-content">
         <img [src] = "BaseUrl + post.image" class="mainPicture" />
-    <br>
-    <br>
-    <p>{{ post.paragraph1 }}</p>
-    <p>{{ post.paragraph2 }}</p>
-    <p>{{ post.paragraph3 }}</p>
-    <p>{{ post.paragraph4 }}</p>
-    <p>{{ post.paragraph5 }}</p>
-    <br>
-    <br>
-    <br>
-    
-
-
+        <br>
+        <br>
+        <p>{{ post.paragraph1 }}</p>
+        <p>{{ post.paragraph2 }}</p>
+        <p>{{ post.paragraph3 }}</p>
+        <p>{{ post.paragraph4 }}</p>
+        <p>{{ post.paragraph5 }}</p>
+        <br>
+        <br>
+        <span class="author-info">{{ post.author.first_name }} {{post.author.last_name}}</span>
+        <br>
+        <br>
+        <br>
+        <app-comment-list [postId]="postId"></app-comment-list>
+        <app-comment-form [postId]="postId"></app-comment-form>
     </div>
 </div>

@@ -1,0 +1,82 @@
+/* Estilos para la sección de comentarios */
+.comment-section {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  
+  /* Estilos para cada comentario individual */
+  .comment {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  /* Estilos para el autor del comentario */
+  .comment-author {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Estilos para la fecha del comentario */
+  .comment-date {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  /* Estilos para el contenido del comentario */
+  .comment-content {
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  /* Estilos para el formulario de comentario */
+  .comment-form {
+    margin-top: 30px;
+  }
+  
+  /* Estilos para el campo del nombre del autor */
+  .comment-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para el campo de correo electrónico del autor */
+  .comment-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para el campo del comentario */
+  .comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para el botón de enviar comentario */
+  .comment-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .comment-form button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { Posts } from '../models/posts';
+import { Comments } from '../models/comments';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,11 @@ export class BlogServiceService {
 
   constructor(private http: HttpClient) { }
 
-  // Obtener la lista de publicaciones
+  // Obtener posts
   public getPosts(): Observable<any> {
     return this.http.get<Posts>(`${this.baseUrl}posts/`);
   }
-  //Obtener publicaciones por id
+
   public getPostByID(id: number): Observable<any>{
     return this.http.get<Posts>(`${this.baseUrl}posts/${id}/`);
   }
@@ -25,28 +26,36 @@ export class BlogServiceService {
     return this.http.get<any[]>(`${this.baseUrl}categories/${categoryName}/`);
   }
 
-  // Crear una nueva publicación
+  // CRUD de posts
   public createPost(post: any): Observable<any> {
     return this.http.post<Posts>(`${this.baseUrl}posts/`, post);
   }
 
-  // Actualizar una publicación existente
   public updatePost(postId: number, post: any): Observable<any> {
     return this.http.put<Posts>(`${this.baseUrl}posts/${postId}/`, post);
   }
 
-  // Eliminar una publicación
   public deletePost(postId: number): Observable<any> {
     return this.http.delete<Posts>(`${this.baseUrl}posts/${postId}/`);
   }
 
-  // Obtener la lista de comentarios de una publicación
-  public getComments(postId: number): Observable<any> {
-    return this.http.get<Posts>(`${this.baseUrl}posts/${postId}/comments/`);
+  //Comentarios
+  public getComments(postId: number): Observable<any[]> {
+    return this.http.get<Comments[]>(`${this.baseUrl}posts/${postId}/comments/`).pipe(
+      catchError(error => {
+        console.error('Error al obtener comentarios:', error);
+        return [];
+      })
+    );
   }
 
-  // Crear un nuevo comentario para una publicación
   public createComment(postId: number, comment: any): Observable<any> {
-    return this.http.post<Posts>(`${this.baseUrl}posts/${postId}/comments/`, comment);
+    const url = `${this.baseUrl}posts/${postId}/comments/`;
+    return this.http.post<Comments>(url, comment);
+  }
+
+  public deleteComment(postId: number, commentId: number): Observable<any> {
+    const url = `${this.baseUrl}posts/${postId}/comments/${commentId}/`;
+    return this.http.delete(url);
   }
 }

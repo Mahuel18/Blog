@@ -8,6 +8,9 @@ import { BlogCategoriesComponent } from './blog-categories/blog-categories.compo
 import { BlogRoutingModule } from './blog-routing.module';
 import { LandingComponent } from './landing/landing.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommentModule } from '../comment/comment.module';
+import { CommentListComponent } from '../comment/comment-list/comment-list.component';
 
 
 
@@ -18,12 +21,14 @@ import { RouterModule } from '@angular/router';
     CreateBlogComponent,
     EditBlogComponent,
     BlogCategoriesComponent,
-    LandingComponent
-  ],
+    LandingComponent,
+    ],
   imports: [
     CommonModule,
     BlogRoutingModule,
     RouterModule,
+    FormsModule,
+    CommentModule,
   ]
 })
 export class BlogModule { }

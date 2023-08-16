@@ -9,8 +9,15 @@ import { BlogServiceService } from 'src/app/service/blog-service.service';
 })
 export class BlogPostComponent implements OnInit {
   post: any;
+  comments: any[] = [];
+  newComment: string = '';
+  postId: number = 0;
   BaseUrl = 'http://127.0.0.1:8000/';
+
   constructor(private route: ActivatedRoute, private blogService: BlogServiceService){
+    this.route.params.subscribe((params) => {
+      this.postId = params["id"];
+    });
   }
 
   ngOnInit(): void {
@@ -29,5 +36,8 @@ export class BlogPostComponent implements OnInit {
       console.error('El parámetro "id" es nulo o no está presente.');
     };
   }
+
+  
+
 
 }

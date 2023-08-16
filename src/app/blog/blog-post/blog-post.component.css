@@ -78,3 +78,9 @@
     margin-top: 20px;
   }
   
+  .text-respon{
+    width: 100%; /* Ocupa el 100% del ancho disponible */
+    max-width: 100%; /* Limita el ancho máximo al 100% */
+    min-height: 100px; /* Altura mínima deseada */
+    resize: vertical; /* Permite ajustar solo la altura vertical */
+  }
