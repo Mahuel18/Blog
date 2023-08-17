@@ -52,3 +52,11 @@
     background-color: #0056b3;
   }
   
+  .registrarse a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .registrarse a:hover {
+    color: #0056b3;
+  }

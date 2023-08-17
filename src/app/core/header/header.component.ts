@@ -8,6 +8,12 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  navbarLinksVisible = false;
+
+  toggleNavbarLinks() {
+    this.navbarLinksVisible = !this.navbarLinksVisible;
+  }
+  
   isLoggedIn = false;
   loggedInUser: string | null = '';
 

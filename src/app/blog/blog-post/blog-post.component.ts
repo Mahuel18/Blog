@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
 import { BlogServiceService } from 'src/app/service/blog-service.service';
 
 @Component({
@@ -13,12 +14,18 @@ export class BlogPostComponent implements OnInit {
   newComment: string = '';
   postId: number = 0;
   BaseUrl = 'http://127.0.0.1:8000/';
+  auth : boolean;
 
-  constructor(private route: ActivatedRoute, private blogService: BlogServiceService){
+  constructor(private route: ActivatedRoute, private blogService: BlogServiceService, private authService: AuthService){
     this.route.params.subscribe((params) => {
       this.postId = params["id"];
     });
-  }
+    if (this.authService.isAuthenticated()){
+      this.auth = true;
+    } else {
+      this.auth = false;
+      }
+    };
 
   ngOnInit(): void {
     const postIdParam = this.route.snapshot.paramMap.get('id');

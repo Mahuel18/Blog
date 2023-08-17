@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { FormControl, FormsModule } from '@angular/forms';
-import { BlogRoutingModule } from './blog/blog-routing.module';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 //Modulos Internos
@@ -17,8 +15,6 @@ import { ErrorHandlingModule } from './error-handling/error-handling.module';
 import { PaginationModule } from './pagination/pagination.module';
 import { SearchModule } from './search/search.module';
 import { SharedModule } from './shared/shared.module';
-import { HeaderComponent } from './core/header/header.component';
-import { FooterComponent } from './core/footer/footer.component';
 
 
 

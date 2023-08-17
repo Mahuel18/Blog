@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BlogServiceService } from 'src/app/service/blog-service.service';
+import { CommentListComponent } from '../comment-list/comment-list.component';
+import * as jwt_decode from 'jwt-decode'; 
 
 @Component({
   selector: 'app-comment-form',
@@ -13,7 +15,7 @@ export class CommentFormComponent {
   post: any;
   comments: any[] = [];
   commentForm: FormGroup;
-  @Input() postId: number = 0; 
+  @Input() postId: number = 1; 
   
   constructor(private route: ActivatedRoute, private blogService: BlogServiceService, private fb: FormBuilder){
     this.commentForm = this.fb.group({
@@ -24,17 +26,13 @@ export class CommentFormComponent {
   onSubmit() {
     if (this.commentForm.valid) {
       const content = this.commentForm.get('content')?.value;
-      const newComment = { content };
-      console.log(newComment);
+      const post = this.postId;
+      const newComment = content;
       
-      // Llama al servicio para crear el comentario
-      this.blogService.createComment(this.postId, newComment).subscribe(
+      this.blogService.createComment(post, newComment ).subscribe(
         (response) => {
-          // Actualiza la lista de comentarios con el nuevo comentario
-          this.comments.push(response);
-          
-          // Limpia el formulario
           this.commentForm.reset();
+          this.blogService.triggerCommentsUpdated();
         },
         (error) => {
           console.error('Error al crear comentario:', error);

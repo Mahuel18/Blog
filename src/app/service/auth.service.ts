@@ -13,6 +13,11 @@ export class AuthService {
   constructor(private http: HttpClient) { 
     this.checkAuthentication();
    }
+
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    return token !== null; // Si hay un token, el usuario está autenticado
+  }
    
   checkAuthentication(): Observable<any> {
     const httpOptions = {
@@ -21,7 +26,6 @@ export class AuthService {
         Authorization: `Token ${localStorage.getItem('token')}`
       })
     };
-    console.log(httpOptions);
     return this.http.get(`${this.apiUrl}check-auth/`, httpOptions);
   }
 
@@ -42,6 +46,8 @@ export class AuthService {
     return this.http.get(url, httpOptions);
   }
   
-  
-
+  registerUser(userData: any): Observable<any> {
+    const url = `${this.apiUrl}register/`;
+    return this.http.post(url, userData);
+  }
 }

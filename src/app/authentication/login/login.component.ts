@@ -29,6 +29,10 @@ import { AuthService } from "src/app/service/auth.service";
     );
   }
 
+  onRegister(){
+    this.router.navigate(['/register']);
+  }
+
   onLogout() {
     this.authService.logout().subscribe(
       () => {

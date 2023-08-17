@@ -1,5 +1,7 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Comments } from 'src/app/models/comments';
 import { BlogServiceService } from 'src/app/service/blog-service.service';
 
 @Component({
@@ -7,39 +9,35 @@ import { BlogServiceService } from 'src/app/service/blog-service.service';
   templateUrl: './comment-list.component.html',
   styleUrls: ['./comment-list.component.css']
 })
-export class CommentListComponent implements OnChanges {
-  @Input() postId: number = 0; 
-  comments: any[] =[];
+export class CommentListComponent implements OnDestroy {
+  @Input() postId: number = 1; 
+  private commentsSubscription: Subscription;
+  comments: Comments[] = [];
   
   constructor(private route: ActivatedRoute, private blogService: BlogServiceService){
+    this.commentsSubscription = this.blogService.getCommentsUpdatedObservable().subscribe(() => {
+      this.refreshComments();
+    });
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['postId'] && this.postId) {
-      this.getComments();
-    }
+  refreshComments() {
+    // Actualizar la lista de comentarios
+    this.blogService.getComments(this.postId).subscribe((comments) => {
+      this.comments = comments;
+    });
   }
   
   ngOnInit(): void{
       this.loadComments(this.postId);
   }
 
-  
-  getComments() {
-    this.blogService.getComments(this.postId).subscribe(
-      (response) => {
-        this.comments = response;
-      },
-      (error) => {
-        console.error('Error al obtener comentarios:', error);
-      }
-    );
+  ngOnDestroy(): void {
+    this.commentsSubscription.unsubscribe();
   }
   
   loadComments(postId: number){
     this.blogService.getComments(postId).subscribe(
       (comments) => {
-        console.log(comments);
         this.comments = comments;
       }, (error) => {
         console.log(error);

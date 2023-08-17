@@ -7,6 +7,7 @@ import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import { CreateBlogComponent } from './create-blog/create-blog.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from "../authentication/login/login.component";
+import { RegisterComponent } from "../authentication/register/register.component";
 
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
     {
         path: "login",
         component: LoginComponent,
+    },
+    {
+        path: "register",
+        component: RegisterComponent,
     },
     {
         path: "index",

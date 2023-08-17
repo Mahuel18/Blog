@@ -1,21 +1,47 @@
 <nav class="navbar">
   <a href="#" class="navbar-logo">Emanuel Lopez</a>
-  <ul class="navbar-links" id="navbar-links">
+  <ul
+    class="navbar-links"
+    id="navbar-links"
+    [ngClass]="{ show: navbarLinksVisible }"
+  >
     <li><a routerLink="/landing">Home</a></li>
     <li><a routerLink="/list">Post</a></li>
     <li><a href="#">Portfolio</a></li>
     <li><a href="#">Contact</a></li>
-    <li *ngIf="isLoggedIn"><a>Bienvenido, {{ loggedInUser }}</a></li>
-        <li *ngIf="isLoggedIn; else loginLink">
-          <a style="cursor: pointer;" (click)="logout()">Cerrar sesión</a>
-        </li>
-        <ng-template #loginLink>
-          <li><a routerLink="/login"><i class="fa fa-user"></i>Iniciar sesión</a></li>
-        </ng-template>
+    <li *ngIf="isLoggedIn">
+      <a>Bienvenido, {{ loggedInUser }}</a>
+    </li>
+    <li *ngIf="isLoggedIn; else loginLink">
+      <a style="cursor: pointer" (click)="logout()">Cerrar sesión</a>
+    </li>
+    <ng-template #loginLink>
+      <li>
+        <a routerLink="/login"><i class="fa fa-user"></i>Iniciar sesión</a>
+      </li>
+    </ng-template>
   </ul>
-  <div class="navbar-toggle" id="navbar-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
 </nav>
+
+<input type="checkbox" id="hamburger-input" class="burger-shower" />
+<label id="hamburger-menu" for="hamburger-input">
+  <nav id="sidebar-menu">
+    <h3>Menu</h3>
+    <ul>
+      <li><a routerLink="/landing">Home</a></li>
+      <li><a routerLink="/list">Post</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+      <li *ngIf="isLoggedIn; else loginLink">
+        <a style="cursor: pointer" (click)="logout()">Cerrar sesión</a>
+      </li>
+      <ng-template #loginLink>
+        <li>
+          <a routerLink="/login"><i class="fa fa-user"></i>Iniciar sesión</a>
+        </li>
+      </ng-template>
+    </ul>
+  </nav>
+</label>
+
+<div class="overlay"></div>

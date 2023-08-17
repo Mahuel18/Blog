@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, catchError, tap } from 'rxjs';
 import { Posts } from '../models/posts';
 import { Comments } from '../models/comments';
 
@@ -9,9 +9,13 @@ import { Comments } from '../models/comments';
 })
 
 export class BlogServiceService {
+  private commentsUpdatedSubject = new Subject<void>();
+
   private baseUrl = 'http://127.0.0.1:8000/api/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    
+   }
 
   // Obtener posts
   public getPosts(): Observable<any> {
@@ -49,13 +53,30 @@ export class BlogServiceService {
     );
   }
 
-  public createComment(postId: number, comment: any): Observable<any> {
+  public createComment( postId: number, comment: string,): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Token ${localStorage.getItem('token')}`
+      })
+    };
+    const body = {
+      post : postId,
+      content: comment
+    }
     const url = `${this.baseUrl}posts/${postId}/comments/`;
-    return this.http.post<Comments>(url, comment);
+    return this.http.post<Comments>(url, body, httpOptions);
   }
 
   public deleteComment(postId: number, commentId: number): Observable<any> {
     const url = `${this.baseUrl}posts/${postId}/comments/${commentId}/`;
     return this.http.delete(url);
+  }
+
+  triggerCommentsUpdated() {
+    this.commentsUpdatedSubject.next();
+  }
+  getCommentsUpdatedObservable(): Observable<void> {
+    return this.commentsUpdatedSubject.asObservable();
   }
 }
