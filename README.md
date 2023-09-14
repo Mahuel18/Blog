@@ -1,27 +1,26 @@
 # Blog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+# Blog Front-end
 
-## Development server
+Este es el front-end de un blog interactivo desarrollado utilizando Angular y Bootstrap.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Descripción
 
-## Code scaffolding
+El objetivo de este proyecto es proporcionar a los usuarios una experiencia de usuario moderna y altamente funcional al explorar y consumir contenido. El diseño es intuitivo y receptivo, lo que garantiza una excelente experiencia tanto en dispositivos móviles como en escritorio.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Requisitos de Instalación
 
-## Build
+- Node.js
+- Angular CLI
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalación
 
-## Running unit tests
+1. Clona el repositorio: `git clone https://github.com/Mahuel18/blog.git`
+2. Navega al directorio del proyecto: `cd blog`
+3. Instala las dependencias: `npm install`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Cómo Usar
 
-## Running end-to-end tests
+1. Inicia la aplicación: `ng serve`
+2. Abre tu navegador y ve a `http://localhost:4200`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
