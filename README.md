@@ -1,7 +1,5 @@
 # Blog
 
-# Blog Front-end
-
 Este es el front-end de un blog interactivo desarrollado utilizando Angular y Bootstrap.
 
 ## Descripción
