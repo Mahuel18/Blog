@@ -1,23 +1,31 @@
-# Blog
+# Angular Blog Project
 
-Este es el front-end de un blog interactivo desarrollado utilizando Angular y Bootstrap.
+This is an Angular-based blog project that allows users to create, read, update, and delete blog posts.
 
-## Descripción
 
-El objetivo de este proyecto es proporcionar a los usuarios una experiencia de usuario moderna y altamente funcional al explorar y consumir contenido. El diseño es intuitivo y receptivo, lo que garantiza una excelente experiencia tanto en dispositivos móviles como en escritorio.
+## Features
 
-## Requisitos de Instalación
+- Create, Read, Update, and Delete blog posts.
+- User authentication and authorization.
+- Commenting system on blog posts.
+- Responsive design for various screen sizes.
+- Search functionality to find specific blog posts.
 
-- Node.js
+## Getting Started
+
+### Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+- Node.js and npm
 - Angular CLI
 
-## Instalación
+### Installation
 
-1. Clona el repositorio: `git clone https://github.com/Mahuel18/blog.git`
-2. Navega al directorio del proyecto: `cd blog`
-3. Instala las dependencias: `npm install`
+1. Clone the repository:
 
-## Cómo Usar
+```bash
+git clone https://github.com/mahuel18/blog.git
 
 1. Inicia la aplicación: `ng serve`
 2. Abre tu navegador y ve a `http://localhost:4200`
